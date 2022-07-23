@@ -1,0 +1,16 @@
+{% extends 'catalog/base_generic.html' %} {% block MainContent %}
+
+
+<div class="content">
+  <h1>{{ author }}</h1>
+  {{ author.date_of_birth }} - {{ author.date_of_death }}
+
+<h3>Books by {{ author }}</h3>
+{% for book in books %}
+  <a href="{% url 'bookDetails' book.id %}">{{ book }}</a>
+  
+{% endfor %}
+  
+</div>
+
+{% endblock %}

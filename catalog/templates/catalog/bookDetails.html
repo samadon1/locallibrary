@@ -2,17 +2,20 @@
 <div class="content">
   <div class="book-grid">
     <div>
-      <img src="https://covers.openlibrary.org/b/id/12749583-L.jpg" alt="" />
+      <img
+        class="book-img-main"
+        src="https://covers.openlibrary.org/b/id/12749583-L.jpg"
+        alt=""
+      />
     </div>
-    <div>
+    <div class="book-container">
       <h1>{{ book.title }}</h1>
 
-      by <a href="">{{ book.author }}</a>
+      by
+      <a href="{% url 'authorDetails' book.author.id %}">{{ book.author }}</a>
 
-      <p>
-        <strong>ISBN:</strong> {{ book.isbn }} <strong>Genre:</strong> {{
-        book.Genre }}
-      </p>
+      <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+      <p><strong>Genre:</strong> {{ book.Genre }}</p>
 
       <h3>Summary</h3>
       {{ book.summary }}

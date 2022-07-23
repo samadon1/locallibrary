@@ -5,7 +5,7 @@
 
  <ul>
     <li>
-        <a href="" class="link-style" > 
+        <a href="{% url 'authorDetails' author.id %}" class="link-style" > 
             <p>
               {{ author }} ( {{ author.date_of_birth }} - {{ author.date_of_death }} )
             </p>

@@ -47,3 +47,15 @@ def authors(request):
 
 
     return render(request, 'catalog/authors.html', context)
+
+def authorDetails(request, pk):
+    author = Author.objects.get(id=pk)
+
+    authorBooks = Book.objects.filter(author = pk)
+    
+    context = {
+        'author': author,
+        'books': authorBooks
+
+    }
+    return render(request, 'catalog/authorDetails.html', context )
