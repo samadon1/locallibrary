@@ -1,0 +1,21 @@
+{% extends 'catalog/base_generic.html' %} 
+
+{% block MainContent %} 
+<div class="content" >
+
+    <h1>Book List</h1>
+
+{% if books %} {% for book in books %}
+
+
+<ul>
+    <a href="{% url 'bookDetails' book.id %}">
+        <li>{{ book.title }}</li>
+    </a>
+ 
+  {{ book.author }}
+</ul>
+
+{% endfor %} {% endif %} 
+</div>
+{% endblock %}
