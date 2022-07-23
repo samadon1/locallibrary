@@ -1,0 +1,23 @@
+{% extends 'catalog/base_generic.html'%} {% block MainContent %}
+<div class="content">
+  <div class="book-grid">
+    <div>
+      <img src="https://covers.openlibrary.org/b/id/12749583-L.jpg" alt="" />
+    </div>
+    <div>
+      <h1>{{ book.title }}</h1>
+
+      by <a href="">{{ book.author }}</a>
+
+      <p>
+        <strong>ISBN:</strong> {{ book.isbn }} <strong>Genre:</strong> {{
+        book.Genre }}
+      </p>
+
+      <h3>Summary</h3>
+      {{ book.summary }}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
