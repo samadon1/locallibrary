@@ -25,7 +25,7 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-6. Go to the search page 
+6. Go to the catalog page 
 ```
 http://127.0.0.1:8000/catalog/
 ```
