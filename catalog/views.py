@@ -1,6 +1,9 @@
+from turtle import title
 from django.shortcuts import render
 from .models import Author, Book, BookInstance, Genre
 from django.views import generic
+
+from django import forms
 
 # Create your views here.
 def index(request):
@@ -17,6 +20,7 @@ def index(request):
         'num_instances': num_instances,
         'num_authors': num_authors,
         'nums_instances_available': num_instances_available,
+        "form": searchForm
     }
 
     return render(request, 'catalog/index.html', context)
@@ -59,3 +63,18 @@ def authorDetails(request, pk):
 
     }
     return render(request, 'catalog/authorDetails.html', context )
+
+class searchForm(forms.Form):
+        term = forms.CharField(label= 'Search for books, authors, genre...' , max_length=200)
+
+def search(request):
+
+        q = request.GET.get('term') if request.GET.get('q') != None else ''
+
+        search = Book.objects.filter(title__icontains=q)
+
+        context = {
+            "search" : search,
+        
+        }
+        return render(request, 'catalog/search.html', context)

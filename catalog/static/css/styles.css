@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap');
 
 :root {
-    --primary-color: rgb(33, 33, 231);
+    --primary-color: rgb(69, 33, 231);
 }
 
 body {
     font-family: 'Poppins';
     margin: 5%;
 }
+
+h1 {
+    color: var(--primary-color);
+}
+
+
 
 .home-sidebar {
     display: grid;
@@ -36,4 +42,42 @@ body {
 
 .book-container {
     margin-left: 50px;
+    padding: 5%;
+    border: 1px solid rgba(128, 128, 128, 0.178);
 }
+
+.border-style {
+
+    padding: 5%;
+    border: 1px solid rgba(128, 128, 128, 0.178);
+
+}
+
+.btn-style {
+    padding: 5% 25%;
+    background-color: var(--primary-color);
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    color: white;
+    border-radius: 15px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.book-display-grid {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+
+.book-dispay-grid-item {
+    margin-bottom: 50px;
+
+
+
+}
+
+.book-dispay-grid-item {}
