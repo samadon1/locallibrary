@@ -66,15 +66,18 @@ def authorDetails(request, pk):
 
 class searchForm(forms.Form):
         term = forms.CharField(label= 'Search for books, authors, genre...' , max_length=200)
+        
 
 def search(request):
 
-        q = request.GET.get('term') if request.GET.get('q') != None else ''
+        q = request.GET.get('term') 
+        # if request.GET.get('q') != None else ''
 
-        search = Book.objects.filter(title__icontains=q)
+        search = Book.objects.filter(title__contains=q)
 
         context = {
             "search" : search,
+            "form": searchForm,
         
         }
         return render(request, 'catalog/search.html', context)

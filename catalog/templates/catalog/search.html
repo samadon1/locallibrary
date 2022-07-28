@@ -1,15 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search</title>
-</head>
-<body>
-    {% for item in search %}
-    {{ item }}
+{% extends 'catalog/base_generic.html' %} {% block MainContent %}
+<div class="content">
+  <h1>All Books</h1>
+
+  <form action="{% url 'search' %}" method="GET">
+    {% csrf_token %} {{ form }}
+    <input class="submit-style" type="submit" value="Go" />
+  </form>
+  
+<hr>
+<br>
+
+
+ 
+  <div class="book-display-grid">
+    {% for book in search %}
+
+    <div class="book-dispay-grid-item">
+      <img src="{{ book.image.url }}" height="250px" width="220px" alt="" />
+      <br />
+      <a class="link-style" href="{% url 'bookDetails' book.id %}">
+        <h3 style="line-height: 2px">{{ book.title }}</h3>
+      </a>
+      by <strong> {{ book.author }} </strong> <br />
+      <br />
+
+      <a class="btn-style link-style" href="{% url 'bookDetails' book.id %}"
+        >Details</a
+      >
+    </div>
+
     {% endfor %}
-    
-</body>
-</html>
+  </div>
+
+</div>
+{% endblock %}
+
