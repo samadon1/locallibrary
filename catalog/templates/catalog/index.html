@@ -1,24 +1,23 @@
 {% extends 'catalog/base_generic.html' %} {% block MainContent %}
 <div class="content">
-  <h1>Local Library Home</h1>
-  <h3>Welcome to the Local Library</h3>
+  <div class="landing-page">
 
-  <br />
+    <div class="wrap">
+      <h1>Welcome to the Local Library</h1>
+      <form action="{% url 'search' %}" method="GET">
+        <div class="search">
+          <input name="q" type="text" class="searchTerm" placeholder="What are you looking for?">
+          <button  type="submit" class="searchButton">
+            <i class="fa fa-search"><img width="20px"
+                src="https://www.iconsdb.com/icons/preview/white/search-13-xxl.png" alt=""></i>
+          </button>
 
-  <form action="{% url 'search' %}" method="GET">
-    {% csrf_token %} {{ form }}
-    <input class="submit-style" type="submit" value="Go" />
-  </form>
+        </div>
+      </form>
 
-  <h1>Catalog</h1>
-  <p>The library has the following record counts:</p>
+    </div>
+  </div>
 
-  <ul>
-    <li>📖 Books: {{ num_books }}</li>
-    <li>📚 Copies: {{ nums_instances_available }}</li>
-    <li>🔖 Copies available: {{ nums_instances_available}}</li>
-    <li>📝 Authors :{{ num_authors }}</li>
-  </ul>
 </div>
 
 {% endblock %}

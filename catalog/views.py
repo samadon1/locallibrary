@@ -69,8 +69,9 @@ class searchForm(forms.Form):
         
 
 def search(request):
+        
+        q = request.GET.get('q') if request.GET.get('q') != None else ""
 
-        q = request.GET.get('term') 
         # if request.GET.get('q') != None else ''
 
         search = Book.objects.filter(title__contains=q)

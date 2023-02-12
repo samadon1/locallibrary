@@ -6,6 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
     {% block title %}
     <title>Local Library</title>
@@ -16,14 +17,14 @@
   <body>
     <div class="home-sidebar">
       {% block sidebar %}
-      <div class="sidebar">
+      <!-- <div class="sidebar">
         <p></p>
         <a href="{% url 'index' %}">Home</a>
         <p></p>
         <a href="{% url 'books' %}">All books</a>
         <p></p>
         <a href="{% url 'authors' %}">All authors</a>
-      </div>
+      </div> -->
         {% endblock %} 
       
       {% block MainContent %} 
